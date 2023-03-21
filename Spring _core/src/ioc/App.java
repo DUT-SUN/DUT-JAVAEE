@@ -17,6 +17,5 @@ public class App {
         Framework framework=new Framework(bottom);
         Car car=new Car(framework);
         car.init();
-
     }
 }
