@@ -53,3 +53,22 @@ application是Springweb中的作用域
 singleton是作用于IOC容器
 而application是作用于Servlet容器
 
+说一下Spring的执行流程？  
+1.启动容器（项目）  
+2.读取配置文件初始化  
+（a）使用xml直接注册bean  
+（b）配置bean根扫描路径  
+3.将bean存储到spring中通过类注解进行扫描和装配  
+4.将bean从spring读取出来装配到相应的类  
+
+Bean生命周期：  
+1.实例化（对应JVM中的加载）分配了内存  
+2.设置属性（Bean注入和装配）  
+3.初始化  
+（a）各种通知  
+（b）初始化的前置工作  
+（c）进行初始化工作【使用注解@PostConstruct初始化，使用（xml）init-method初始化】//假如两个都有的话，前者先执行  
+（d）初始化后的后置工作  
+4.使用bean  
+
+
