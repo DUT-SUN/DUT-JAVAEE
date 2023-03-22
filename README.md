@@ -31,10 +31,25 @@ getbean的时候如何根据类名去取bean对象（传什么别名）<br/>
 五大类注解的作用
 @Controller(控制器)：归属于业务逻辑层，用来控制用户的行为，用来检查参数的有效性  
 @Service(服务):归属于服务层，调用持久化类实现相应的功能（不直接操作数据库）  
-@Repository(仓库):归属于持久层，直接与数据库打交道，通常每个表对应一个repository  
+@Repository(仓库):归属于持久层，直接与数据库打交道，通常每个表对应一个repository    
 @Configuration(配置):归属于配置层，用来配置项目的信息  
-@Component(组件)：归属于公共工具类，提供某些公共方法  
+@Component(组件)：归属于公共工具类，提供某些公共方法    
+
+Bean的作用域：Bean在Spring框架下的某种行为模式  
+#Bean的六种作用域：  
+singleton（单例作用域）单例模式  
+prototype(原型作用域）多例模式  
+request(请求作用域）每次请求创一个  
+session（回话作用域）每次会话创一个     ->多线程中的ThreadLocal  
+application（全局作用域）一个context里是共享的，多个不是共享的  
+websocket 一个HTTP websocket生命周期只有一个Bean实例  
 
 
+singleton和application的不同
 
+singleton是spring core的作用域   
+application是Springweb中的作用域  
+
+singleton是作用于IOC容器
+而application是作用于Servlet容器
 
