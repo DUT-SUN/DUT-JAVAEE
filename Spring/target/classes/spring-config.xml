@@ -6,4 +6,5 @@
    <content:component-scan base-package="Component"></content:component-scan>
    <content:component-scan base-package="Controller"></content:component-scan>
    <content:component-scan base-package="Service"></content:component-scan>
+   <bean id="myComponent" class="Component.BeanLifeComponent" init-method="init"></bean>
 </beans>

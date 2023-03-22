@@ -1,7 +1,10 @@
+import Component.BeanLifeComponent;
 import Component.StudentBeans;
-import Component.User;
+//import Component.User;
 import Component.UserComponent;
 import Controller.StudentController;
+import Controller.UserAdviceController;
+import Controller.UserController;
 import Model.Student;
 import Service.StudentService;
 import org.springframework.context.ApplicationContext;
@@ -28,7 +31,6 @@ public class App {
         //hello,world
         //hello,world
         //true
-
         ApplicationContext context=new ClassPathXmlApplicationContext("spring-config.xml");
 //        (2)
 //        执行了User的构造方法
@@ -52,7 +54,19 @@ public class App {
 //        component.sayHi();
 //       Student student=context.getBean("s1",Student.class);
 //        System.out.println(student);
-        StudentController studentController=context.getBean("studentController",StudentController.class);
-        studentController.sayHi();
+//        StudentController studentController=context.getBean("studentController",StudentController.class);
+//        studentController.sayHi();
+
+
+//        UserController userController=context.getBean("userController",UserController.class);
+//        userController.getUser();
+//        UserAdviceController userAdviceController=context.getBean("userAdviceController",UserAdviceController.class);
+//        userAdviceController.getUser();
+
+        BeanLifeComponent beanLifeComponent=context.getBean("myComponent",BeanLifeComponent.class);
+        System.out.println("使用bean");
+        //销毁bean
+
+
     }
 }
