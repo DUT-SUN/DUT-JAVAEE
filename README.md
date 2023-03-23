@@ -1,5 +1,7 @@
 # DUT-JAVAEE
 JAVAEE进阶学习<br/>
+Spring
+====
 Spring：一个包含众多工具方法的IOC容器<br/>
 IOC控制反转（反转的是对象的生命周期控制权，意思是我不用再new再去管理构造链上的底层对象的构造了）<br/>
 JVAA进阶约定：<br/>
@@ -72,3 +74,10 @@ Bean生命周期：
 4.使用bean  
 
 
+SpringBoot  
+====
+概念：它是Spring的脚本架，为了简化Spirng的开发  
+SpringBoot核心：  
+1.快速添加依赖  
+2.内置web容器  
+3.提供了自动装配  
