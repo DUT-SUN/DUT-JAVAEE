@@ -110,6 +110,21 @@ public class Student {
         logger.info("我是info");  
         logger.error("我是error");  
         logger.warn("我是warn");  
+                     日志级别|线程id      线程名          c是com简写以此类推      包名+类名   
 2023-03-25 15:08:19.316  INFO 26368 --- [nio-8888-exec-1] c.e.s.Controller.UserController          : 我是info  
 2023-03-25 15:08:19.316 ERROR 26368 --- [nio-8888-exec-1] c.e.s.Controller.UserController          : 我是error  
 2023-03-25 15:08:19.316  WARN 26368 --- [nio-8888-exec-1] c.e.s.Controller.UserController          : 我是warn  
+
+日志持久化  以及全局部分等级设置
+logging:   
+  file:  
+    path: E:\DUT-JAVAEE\SpringBoot_First\src\main\java\com\example\springboot_first\logs  
+  level:  
+    root: error  
+    com:  
+      example:  
+        springboot_first:  
+          Controller: trace  
+     
+@SLF4J可以添加一个名为log的日志
+
