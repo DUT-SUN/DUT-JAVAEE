@@ -143,3 +143,9 @@ SpringMVC
 
 前端的吊毛乱传参数名时？怎么解决  
 —— public  String getTime(@RequestParam("t1") String startTime,@RequestParam("t2") String endTime)  
+
+@RequestBody 解析json对象  
+ @PostMapping("/getUser")  
+    public String getUser(@RequestBody User user){  
+        return user.toString();  
+    }  
