@@ -1,5 +1,7 @@
 # DUT-JAVAEE
 JAVAEE进阶学习<br/>
+Spring
+====
 Spring：一个包含众多工具方法的IOC容器<br/>
 IOC控制反转（反转的是对象的生命周期控制权，意思是我不用再new再去管理构造链上的底层对象的构造了）<br/>
 JVAA进阶约定：<br/>
@@ -71,4 +73,58 @@ Bean生命周期：
 （d）初始化后的后置工作  
 4.使用bean  
 
+
+SpringBoot  
+====
+概念：它是Spring的脚本架，为了简化Spirng的开发  
+SpringBoot核心：  
+1.快速添加依赖  
+2.内置web容器  
+3.提供了自动装配  
+
+yml和properties都是配置文件  
+yml中的中文通过@Value拿到数据的时候不会是乱码  
+student: {id: 12,name: 牛马,age: 666}  
+去配置对象  
+@Component  
+@ConfigurationProperties("student")  
+@Data  
+public class Student {  
+    private int id;  
+    private String name;  
+    private int age;  
+}  
+这样去自动初始化对象的值,注意这里面的属性值要和配置的一样  
+
+日志文件  
+使用日志：
+1.得到日志对象  
+2.打印日志  
+
+  //1.得到日志对象  
+    private static final Logger logger=LoggerFactory.getLogger(UserController.class);  
+  //2.写日志
+  
+        logger.trace("我是trace");  
+        logger.debug("我是调试日志");  
+        logger.info("我是info");  
+        logger.error("我是error");  
+        logger.warn("我是warn");  
+                     日志级别|线程id      线程名          c是com简写以此类推      包名+类名   
+2023-03-25 15:08:19.316  INFO 26368 --- [nio-8888-exec-1] c.e.s.Controller.UserController          : 我是info  
+2023-03-25 15:08:19.316 ERROR 26368 --- [nio-8888-exec-1] c.e.s.Controller.UserController          : 我是error  
+2023-03-25 15:08:19.316  WARN 26368 --- [nio-8888-exec-1] c.e.s.Controller.UserController          : 我是warn  
+
+日志持久化  以及全局部分等级设置
+logging:   
+  file:  
+    path: E:\DUT-JAVAEE\SpringBoot_First\src\main\java\com\example\springboot_first\logs  
+  level:  
+    root: error  
+    com:  
+      example:  
+        springboot_first:  
+          Controller: trace  
+     
+@SLF4J可以添加一个名为log的日志
 
