@@ -141,3 +141,5 @@ SpringMVC
     }  
     http://localhost:8080/test/showuser?id=1&name=%E5%BC%A0%E4%B8%89&age=666  
 
+前端的吊毛乱传参数名时？怎么解决  
+—— public  String getTime(@RequestParam("t1") String startTime,@RequestParam("t2") String endTime)  
