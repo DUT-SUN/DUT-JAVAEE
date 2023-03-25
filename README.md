@@ -100,3 +100,16 @@ public class Student {
 使用日志：
 1.得到日志对象  
 2.打印日志  
+
+  //1.得到日志对象  
+    private static final Logger logger=LoggerFactory.getLogger(UserController.class);  
+  //2.写日志
+  
+        logger.trace("我是trace");  
+        logger.debug("我是调试日志");  
+        logger.info("我是info");  
+        logger.error("我是error");  
+        logger.warn("我是warn");  
+2023-03-25 15:08:19.316  INFO 26368 --- [nio-8888-exec-1] c.e.s.Controller.UserController          : 我是info  
+2023-03-25 15:08:19.316 ERROR 26368 --- [nio-8888-exec-1] c.e.s.Controller.UserController          : 我是error  
+2023-03-25 15:08:19.316  WARN 26368 --- [nio-8888-exec-1] c.e.s.Controller.UserController          : 我是warn  
