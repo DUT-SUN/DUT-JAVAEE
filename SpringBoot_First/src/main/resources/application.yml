@@ -1,0 +1,22 @@
+#server:
+#  port: 6666
+
+mytest: 李四
+
+str1: hello,\n牛马
+str2: 'hello,\n牛马'
+str3: "hello,\n牛马"
+student: {id: 12,name: 牛马,age: 666}
+spring:
+  profiles:
+    active: prod
+
+logging:
+  file:
+    path: E:\DUT-JAVAEE\SpringBoot_First\src\main\java\com\example\springboot_first\logs
+  level:
+    root: error
+    com:
+      example:
+        springboot_first:
+          Controller: trace

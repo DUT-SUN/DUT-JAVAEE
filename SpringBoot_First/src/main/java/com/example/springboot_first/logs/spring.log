@@ -1,0 +1,11 @@
+2023-03-25 16:06:50.716 TRACE 23156 --- [http-nio-8888-exec-1] c.e.s.Controller.UserController          : 我是trace
+2023-03-25 16:06:50.717 DEBUG 23156 --- [http-nio-8888-exec-1] c.e.s.Controller.UserController          : 我是调试日志
+2023-03-25 16:06:50.717  INFO 23156 --- [http-nio-8888-exec-1] c.e.s.Controller.UserController          : 我是info
+2023-03-25 16:06:50.717 ERROR 23156 --- [http-nio-8888-exec-1] c.e.s.Controller.UserController          : 我是error
+2023-03-25 16:06:50.718  WARN 23156 --- [http-nio-8888-exec-1] c.e.s.Controller.UserController          : 我是warn
+2023-03-25 16:32:48.896 TRACE 2312 --- [http-nio-8888-exec-1] c.e.s.Controller.UserController          : 我是trace
+2023-03-25 16:32:48.897 DEBUG 2312 --- [http-nio-8888-exec-1] c.e.s.Controller.UserController          : 我是调试日志
+2023-03-25 16:32:48.900  INFO 2312 --- [http-nio-8888-exec-1] c.e.s.Controller.UserController          : 我是info
+2023-03-25 16:32:48.901 ERROR 2312 --- [http-nio-8888-exec-1] c.e.s.Controller.UserController          : 我是error
+2023-03-25 16:32:48.901  WARN 2312 --- [http-nio-8888-exec-1] c.e.s.Controller.UserController          : 我是warn
+2023-03-25 16:34:07.335 TRACE 13924 --- [http-nio-8888-exec-1] c.e.s.Controller.TestController          : Hi,SLF4J
