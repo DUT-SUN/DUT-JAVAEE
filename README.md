@@ -81,3 +81,22 @@ SpringBoot核心：
 1.快速添加依赖  
 2.内置web容器  
 3.提供了自动装配  
+
+yml和properties都是配置文件  
+yml中的中文通过@Value拿到数据的时候不会是乱码  
+student: {id: 12,name: 牛马,age: 666}  
+去配置对象  
+@Component  
+@ConfigurationProperties("student")  
+@Data  
+public class Student {  
+    private int id;  
+    private String name;  
+    private int age;  
+}  
+这样去自动初始化对象的值,注意这里面的属性值要和配置的一样  
+
+日志文件  
+使用日志：
+1.得到日志对象  
+2.打印日志  
