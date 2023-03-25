@@ -135,9 +135,9 @@ SpringMVC
 @GetMapping("/showuser")
 @RequestMapping(value = "/hi",method = RequestMethod.POST)  
 
-   @GetMapping("/showuser")
-    public String showUser(User user){
-        return user.toString();
-    }
-    http://localhost:8080/test/showuser?id=1&name=%E5%BC%A0%E4%B8%89&age=666
+   @GetMapping("/showuser")  
+    public String showUser(User user){  
+        return user.toString();  
+    }  
+    http://localhost:8080/test/showuser?id=1&name=%E5%BC%A0%E4%B8%89&age=666  
 
