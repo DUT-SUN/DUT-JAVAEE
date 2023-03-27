@@ -201,7 +201,7 @@ $是直接替换
 
 SQL注入攻击
 
-···
+```
     @Test
     void login() {
         String username="admin";
@@ -209,9 +209,9 @@ SQL注入攻击
         Userinfo userinfo=userMapper.login(username,password);
         System.out.println("登录状态:"+((userinfo==null)?"登录失败":"登录成功"));
     }
-···
+```
 ------------------------------------------------------------------
-···
+```
 ==>  Preparing: select * from userinfo where username='admin' and password='' or 1='1'
 ==> Parameters: 
 <==    Columns: id, username, password, photo, createtime, updatetime, state
@@ -224,4 +224,4 @@ SQL注入攻击
 <==        Row: 7, 123, 123, , 2023-03-27 18:51:53, 2023-03-27 18:51:53, 1
 <==        Row: 8, 123, 123, , 2023-03-27 18:52:00, 2023-03-27 18:52:00, 1
 <==      Total: 8
-···
+```
