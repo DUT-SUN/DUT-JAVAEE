@@ -168,6 +168,24 @@ private UserMapper userMapper;
         Assertions.assertEquals("admin",userinfo.getUsername());  
     }  
 }  
+
+```
+@Test
+    void add2() {
+        Userinfo userinfo=new Userinfo();
+        userinfo.setUsername("123");
+        userinfo.setPassword("123");
+        userinfo.setCreatetime(LocalDateTime.now());
+        userinfo.setUpdatetime(LocalDateTime.now());
+        //调用mybatis添加方法
+        int result= userMapper.add2(userinfo);//返回的是受影响的行数
+        System.out.println("添加: "+result);
+        int id=userinfo.getId();//这个是用下面框架提供的两个属性自动将主键返回的值写入id中，我们通过getid获取
+        System.out.println("ID："+id);
+    }
+```
+
+返回插入字段的id  
 ```
    <insert id="add2" useGeneratedKeys="true" keyProperty="id">
         insert into userinfo(username,password,createtime,updatetime)
