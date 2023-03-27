@@ -149,3 +149,22 @@ SpringMVC
     public String getUser(@RequestBody User user){  
         return user.toString();  
     }  
+Mybatis的xml模板  
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.example.demo.mapper.UserMapper">  
+   
+</mapper>  
+    
+Junit进行单元测试  
+    @SpringBootTest  
+class UserMapperTest {  
+@Autowired  
+private UserMapper userMapper;  
+    @Test  
+    void getUserById() {  
+        Userinfo userinfo=userMapper.getUserById(1);  
+        System.out.println(userinfo);  
+        Assertions.assertEquals("admin",userinfo.getUsername());  
+    }  
+}  
