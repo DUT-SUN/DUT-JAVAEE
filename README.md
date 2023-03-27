@@ -149,3 +149,46 @@ SpringMVC
     public String getUser(@RequestBody User user){  
         return user.toString();  
     }  
+Mybatis的xml模板  
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.example.demo.mapper.UserMapper">  
+   
+</mapper>  
+    
+Junit进行单元测试  
+    @SpringBootTest  
+class UserMapperTest {  
+@Autowired  
+private UserMapper userMapper;  
+    @Test  
+    void getUserById() {  
+        Userinfo userinfo=userMapper.getUserById(1);  
+        System.out.println(userinfo);  
+        Assertions.assertEquals("admin",userinfo.getUsername());  
+    }  
+}  
+
+```
+@Test
+    void add2() {
+        Userinfo userinfo=new Userinfo();
+        userinfo.setUsername("123");
+        userinfo.setPassword("123");
+        userinfo.setCreatetime(LocalDateTime.now());
+        userinfo.setUpdatetime(LocalDateTime.now());
+        //调用mybatis添加方法
+        int result= userMapper.add2(userinfo);//返回的是受影响的行数
+        System.out.println("添加: "+result);
+        int id=userinfo.getId();//这个是用下面框架提供的两个属性自动将主键返回的值写入id中，我们通过getid获取
+        System.out.println("ID："+id);
+    }
+```
+
+返回插入字段的id  
+```
+   <insert id="add2" useGeneratedKeys="true" keyProperty="id">
+        insert into userinfo(username,password,createtime,updatetime)
+        values(#{username},#{password},#{createtime},#{updatetime})
+    </insert>
+```
