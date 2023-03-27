@@ -192,3 +192,9 @@ private UserMapper userMapper;
         values(#{username},#{password},#{createtime},#{updatetime})
     </insert>
 ```
+#{}和${}使用辨析  
+#是预编译，在执行的时候是将实际的值通过识别看是否需要加双引号什么的去替换？  
+$是直接替换  
+
+大部分情况用#，因为比如更新字段的时候通过username更新，${}直接替换会导致传的字符串不带""所以sql语句识别不出来  
+少部分只能用$还不能用#:就是当排序的时候，desc这样的是mysql的关键字，不能用#否则#识别出来你要传的是字符串加了""反而导致出现错误  
