@@ -168,3 +168,9 @@ private UserMapper userMapper;
         Assertions.assertEquals("admin",userinfo.getUsername());  
     }  
 }  
+```
+   <insert id="add2" useGeneratedKeys="true" keyProperty="id">
+        insert into userinfo(username,password,createtime,updatetime)
+        values(#{username},#{password},#{createtime},#{updatetime})
+    </insert>
+```
