@@ -22,11 +22,86 @@ values(#{username},#{password},#{createtime},#{updatetime})
     <insert id="updateUserName" useGeneratedKeys="true" keyProperty="id">
         update userinfo set username=#{username} where id=#{id}
     </insert>
+    <select id="getListByOrder" resultType="com.example.mybatisdemo.Entity.Userinfo">
+        select * from userinfo order by  id ${order}
+    </select>
+    <select id="login" resultType="com.example.mybatisdemo.Entity.Userinfo">
+        select * from userinfo where username='${username}' and password='${password}'
+    </select>
+    <select id="getListByName" resultType="com.example.mybatisdemo.Entity.Userinfo">
+        select * from userinfo where username like concat('%',#{username},'%');
+    </select>
+    <insert id="add3">
+        insert into userinfo(username,
+                             <if test="photo!=null">photo,</if>
+                             password) values (#{username},
+        <if test="photo!=null"> #{photo},</if>
+                                              #{password})
+    </insert>
+    <insert id="add4">
+        insert into userinfo
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+         <if test="username!=null">
+             username,
+         </if>
+            <if test="password!=null">
+                password,
+            </if>
+            <if test="photo!=null">
+                photo,
+            </if>
+    </trim>
+        values
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="username!=null">
+                #{username},
+            </if>
+            <if test="password!=null">
+                #{password},
+            </if>
+            <if test="photo!=null">
+                #{photo},
+            </if>
+        </trim>
+    </insert>
+    <select id="getListByParam" resultType="com.example.mybatisdemo.Entity.Userinfo">
+        select * from userinfo
+<where>
+    <if test="username!=null">
+        username=#{username}
+    </if>
+<if test="password!=null">
+    and   password=#{password}
+</if>
 
+</where>
+    </select>
+    <update id="update2">
+        update userinfo
+        <set>
+
+<if test="username!=null">
+username=#{username},
+</if>
+            <if test="password!=null">
+                password=#{password},
+            </if>
+            <if test="photo!=null">
+                photo=#{photo},
+            </if>
+
+        </set>
+where id =#{id}
+    </update>
+    <delete id="dels">
+        delete from userinfo where id in
+            <foreach collection="list" item="id" close=")" open="(" separator=",">
+                #{id}
+            </foreach>
+    </delete>
 </mapper>
 <!--        #{}和${}使用辨析++-->
 <!--        #是预编译，在执行的时候是将实际的值通过识别看是否需要加双引号什么的去替换？++-->
 <!--        $是直接替换++-->
-
 <!--        大部分情况用#，因为比如更新字段的时候通过username更新，${}直接替换会导致传的字符串不带""所以sql语句识别不出来++-->
 <!--        少部分只能用$还不能用#:就是当排序的时候，desc这样的是mysql的关键字，不能用#否则#识别出来你要传的是字符串加了""反而导致出现错误++-->

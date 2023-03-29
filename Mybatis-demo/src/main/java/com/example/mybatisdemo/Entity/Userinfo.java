@@ -3,6 +3,7 @@ package com.example.mybatisdemo.Entity;
 import lombok.Data;
 import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 /**
@@ -15,7 +16,8 @@ import java.time.LocalDateTime;
  */
 @Data
 @Component
-public class Userinfo {
+public class Userinfo implements Serializable {
+    private final long serializableId=1L;
     private int id;
     private String username;
     private String password;

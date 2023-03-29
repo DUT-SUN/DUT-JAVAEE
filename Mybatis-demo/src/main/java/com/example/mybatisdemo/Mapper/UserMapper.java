@@ -13,6 +13,7 @@ import java.util.List;
  *
  * @author SUN
  * @date 2023/03/27  13:03
+ * 当属性和表中字段中没有一一对应时，可以使用resultmap或者as解决问题
  */
 @Mapper
 public interface UserMapper {
@@ -22,4 +23,14 @@ public interface UserMapper {
     int add2 (Userinfo userinfo);
     int updateUserName(Userinfo userinfo);
     List<Userinfo> getUserByName(@Param("username")String username);
+    List<Userinfo>getListByOrder(@Param("order")String order);
+    Userinfo login(@Param("username")String username,@Param("password")String password);
+    List<Userinfo>getListByName(@Param("username")String username);
+    int add3(Userinfo userinfo);
+    int add4(Userinfo userinfo);
+    List<Userinfo>getListByParam(String username,String password);
+    int update2(Userinfo userinfo);
+    int dels(List<Integer>list);
+
+
 }
