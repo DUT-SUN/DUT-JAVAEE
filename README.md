@@ -248,3 +248,30 @@ b.后置通知：在执行目标方法之后执行的方法
 c.异常通知  
 d.返回通知：目标方法执行了返回数据时，执行的通知  
 e.环绕通知：在目标方法执行的周期范围内都可以执行的方法  
+
+Springboot 时间格式化
+====
+1.在yml文件中全局配置  
+这个配置只会对entity层的data生效，对localdatetime以及localDate都不生效  
+```
+spring:
+  jackson:
+    date-format: 'yyyy-MM-dd HH-mm-ss'
+    time-zone: 'GMT+8'
+```
+2.单个配置
+```
+@Data
+public class ArticleInfo {
+    private Integer id;
+    private String title;
+    private String content;
+    @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss",timezone = "GMT+8")
+    private LocalDateTime createtime;
+    @JsonFormat(pattern = "yyyy-MM-dd HH-mm-ss",timezone = "GMT+8")
+    private LocalDateTime updatetime;
+    private Integer uid;
+    private Integer rcount;
+    private Integer state;
+}
+```
