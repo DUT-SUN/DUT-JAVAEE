@@ -1,0 +1,35 @@
+spring:
+  jackson:
+    date-format: 'yyyy-MM-dd HH-mm-ss'
+    time-zone: 'GMT+8'
+  session:
+      store-type: redis
+      redis:
+        flush-mode: on_save
+        namespace: spring:session
+      timeout: 1800
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 15
+    password: 123456
+
+
+
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/mycnblog?characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mybatis/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  logging:
+    level:
+      com:
+        example:
+          blogssm: debug
+
